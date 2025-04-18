@@ -10,8 +10,8 @@ package generator
 import (
 	"fmt"
 
-	"github.com/soulteary/certs-maker/internal/define"
-	"github.com/soulteary/certs-maker/internal/fn"
+	"github.com/z-xiaoke/certs-maker/internal/define"
+	"github.com/z-xiaoke/certs-maker/internal/fn"
 )
 
 // TODO Use Golang to implement functions

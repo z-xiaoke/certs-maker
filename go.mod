@@ -1,3 +1,3 @@
-module github.com/soulteary/certs-maker
+module github.com/z-xiaoke/certs-maker
 
 go 1.23.0

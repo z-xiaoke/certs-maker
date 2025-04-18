@@ -1,11 +1,11 @@
 project_name: certs-maker
-
+version: 2
 builds:
   - <<: &build_defaults
       env:
         - CGO_ENABLED=0
       ldflags:
-        - -X "github.com/soulteary/certs-maker/internal/version.Version={{ .Tag }}"
+        - -X "github.com/{{ tolower .Env.GITHUB_REPOSITORY }}/internal/version.Version={{ .Tag }}"
     id: macos
     goos: [ darwin ]
     goarch: [ amd64, arm64 ]
@@ -21,8 +21,7 @@ builds:
 dockers:
 
   - image_templates:
-      - "soulteary/certs-maker:linux-amd64-{{ .Tag }}"
-      - "soulteary/certs-maker:linux-amd64"
+      - "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:linux-amd64-{{ .Tag }}"
     dockerfile: docker/Dockerfile.goreleaser
     use: buildx
     goarch: amd64
@@ -31,16 +30,13 @@ dockers:
       - "--platform=linux/amd64"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
       - "--label=org.opencontainers.image.description={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.url=https://github.com/soulteary/certs-maker"
-      - "--label=org.opencontainers.image.source=https://github.com/soulteary/certs-maker"
       - "--label=org.opencontainers.image.version={{ .Version }}"
       - "--label=org.opencontainers.image.created={{ .Date }}"
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
       - "--label=org.opencontainers.image.licenses=MIT"
 
   - image_templates:
-      - "soulteary/certs-maker:linux-arm64-{{ .Tag }}"
-      - "soulteary/certs-maker:linux-arm64"
+      - "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:linux-arm64-{{ .Tag }}"
     dockerfile: docker/Dockerfile.goreleaser
     use: buildx
     goos: linux
@@ -51,16 +47,13 @@ dockers:
       - "--platform=linux/arm64"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
       - "--label=org.opencontainers.image.description={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.url=https://github.com/soulteary/certs-maker"
-      - "--label=org.opencontainers.image.source=https://github.com/soulteary/certs-maker"
       - "--label=org.opencontainers.image.version={{ .Version }}"
       - "--label=org.opencontainers.image.created={{ .Date }}"
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
       - "--label=org.opencontainers.image.licenses=MIT"
 
   - image_templates:
-      - "soulteary/certs-maker:linux-armv7-{{ .Tag }}"
-      - "soulteary/certs-maker:linux-armv7"
+      - "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:linux-armv7-{{ .Tag }}"
     dockerfile: docker/Dockerfile.goreleaser
     use: buildx
     goos: linux
@@ -71,16 +64,13 @@ dockers:
       - "--platform=linux/arm/v7"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
       - "--label=org.opencontainers.image.description={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.url=https://github.com/soulteary/certs-maker"
-      - "--label=org.opencontainers.image.source=https://github.com/soulteary/certs-maker"
       - "--label=org.opencontainers.image.version={{ .Version }}"
       - "--label=org.opencontainers.image.created={{ .Date }}"
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
       - "--label=org.opencontainers.image.licenses=MIT"
 
   - image_templates:
-      - "soulteary/certs-maker:linux-armv6-{{ .Tag }}"
-      - "soulteary/certs-maker:linux-armv6"
+      - "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:linux-armv6-{{ .Tag }}"
     dockerfile: docker/Dockerfile.goreleaser
     use: buildx
     goos: linux
@@ -91,8 +81,6 @@ dockers:
       - "--platform=linux/arm/v6"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
       - "--label=org.opencontainers.image.description={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.url=https://github.com/soulteary/certs-maker"
-      - "--label=org.opencontainers.image.source=https://github.com/soulteary/certs-maker"
       - "--label=org.opencontainers.image.version={{ .Version }}"
       - "--label=org.opencontainers.image.created={{ .Date }}"
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
@@ -100,18 +88,18 @@ dockers:
 
 
 docker_manifests:
-  - name_template: "soulteary/certs-maker:{{ .Tag }}"
+  - name_template: "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:{{ .Tag }}"
     image_templates:
-      - "soulteary/certs-maker:linux-amd64-{{ .Tag }}"
-      - "soulteary/certs-maker:linux-arm64-{{ .Tag }}"
-      - "soulteary/certs-maker:linux-armv7-{{ .Tag }}"
-      - "soulteary/certs-maker:linux-armv6-{{ .Tag }}"
+      - "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:linux-amd64-{{ .Tag }}"
+      - "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:linux-arm64-{{ .Tag }}"
+      - "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:linux-armv7-{{ .Tag }}"
+      - "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:linux-armv6-{{ .Tag }}"
     skip_push: "false"
 
-  - name_template: "soulteary/certs-maker:latest"
+  - name_template: "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:latest"
     image_templates:
-      - "soulteary/certs-maker:linux-amd64-{{ .Tag }}"
-      - "soulteary/certs-maker:linux-arm64-{{ .Tag }}"
-      - "soulteary/certs-maker:linux-armv7-{{ .Tag }}"
-      - "soulteary/certs-maker:linux-armv6-{{ .Tag }}"
+      - "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:linux-amd64-{{ .Tag }}"
+      - "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:linux-arm64-{{ .Tag }}"
+      - "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:linux-armv7-{{ .Tag }}"
+      - "ghcr.io/{{ tolower .Env.GITHUB_REPOSITORY }}:linux-armv6-{{ .Tag }}"
     skip_push: "false"

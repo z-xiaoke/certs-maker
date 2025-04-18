@@ -13,7 +13,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/soulteary/certs-maker/internal/define"
+	"github.com/z-xiaoke/certs-maker/internal/define"
 )
 
 func ParseFlags() (appFlags AppFlags) {

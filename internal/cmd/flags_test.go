@@ -12,13 +12,13 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/soulteary/certs-maker/internal/cmd"
-	"github.com/soulteary/certs-maker/internal/define"
-	"github.com/soulteary/certs-maker/internal/fn"
+	"github.com/z-xiaoke/certs-maker/internal/cmd"
+	"github.com/z-xiaoke/certs-maker/internal/define"
+	"github.com/z-xiaoke/certs-maker/internal/fn"
 )
 
 func TestApplyFlags(t *testing.T) {
-	const user = "soulteary"
+	const user = "z-xiaoke"
 	const uid = "1234"
 	const gid = "4321"
 

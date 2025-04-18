@@ -11,7 +11,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/soulteary/certs-maker/internal/fn"
+	"github.com/z-xiaoke/certs-maker/internal/fn"
 )
 
 func TestGetUniqDomains(t *testing.T) {

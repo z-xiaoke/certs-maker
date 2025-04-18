@@ -10,7 +10,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/soulteary/certs-maker/internal/define"
+	"github.com/z-xiaoke/certs-maker/internal/define"
 )
 
 const (

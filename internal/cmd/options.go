@@ -14,7 +14,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/soulteary/certs-maker/internal/fn"
+	"github.com/z-xiaoke/certs-maker/internal/fn"
 )
 
 func UpdateStringOption(key string, args string, defaults string) string {

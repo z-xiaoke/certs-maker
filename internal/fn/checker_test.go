@@ -10,7 +10,7 @@ package fn_test
 import (
 	"testing"
 
-	"github.com/soulteary/certs-maker/internal/fn"
+	"github.com/z-xiaoke/certs-maker/internal/fn"
 )
 
 func TestIsNotEmptyAndNotDefaultString(t *testing.T) {

@@ -11,9 +11,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/soulteary/certs-maker/internal/cmd"
-	"github.com/soulteary/certs-maker/internal/define"
-	"github.com/soulteary/certs-maker/internal/fn"
+	"github.com/z-xiaoke/certs-maker/internal/cmd"
+	"github.com/z-xiaoke/certs-maker/internal/define"
+	"github.com/z-xiaoke/certs-maker/internal/fn"
 )
 
 func TestUpdateStringOption(t *testing.T) {

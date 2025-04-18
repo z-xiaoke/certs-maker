@@ -14,8 +14,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/soulteary/certs-maker/internal/define"
-	"github.com/soulteary/certs-maker/internal/generator"
+	"github.com/z-xiaoke/certs-maker/internal/define"
+	"github.com/z-xiaoke/certs-maker/internal/generator"
 )
 
 func TestGeneratePermissionsFixsCmds(t *testing.T) {
