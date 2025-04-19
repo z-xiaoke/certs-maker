@@ -1,5 +1,5 @@
 project_name: certs-maker
-
+version: 2
 builds:
   - <<: &build_defaults
       env:
